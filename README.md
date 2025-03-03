@@ -61,7 +61,7 @@ This enables the following:
 2. Choose your flavor **GUI** or **Headless** and cd into the corresponding directory.
 3. Run `vagrant up`. As long as you have the required dependencies everything should work.
 4. Wait for Vagrant to download and configure each VM.
-	- ==DO NOT MESS WITH ANY OF THE VMs THAT POP UP UNTIL YOUR MICROTIK ROUTER IS UP==
+	- **DO NOT MESS WITH ANY OF THE VM WINDOWS THAT POP UP UNTIL YOUR MICROTIK ROUTER IS UP**
 	- It may take some time for the Ubuntu server to get set up completely.
 5. If Vagrant yells at you about not being able to finish configuration for the Microtik router (vm4), ignore it.
 6. Your environment is ready! You can shut it all off with `vagrant halt` and turn it on again with `vagrant up`
@@ -71,7 +71,7 @@ This enables the following:
 2. Choose your flavor **GUI** or **Headless** and cd into the corresponding directory.
 3. Run `vagrant up`.
 4. Wait for Vagrant to download and configure each VM.
-	- ==DO NOT MESS WITH ANY OF THE VMs THAT POP UP UNTIL YOUR MICROTIK ROUTER IS UP==
+	- **DO NOT MESS WITH ANY OF THE VM WINDOWS THAT POP UP UNTIL YOUR MICROTIK ROUTER IS UP**
 	- It may take some time for the Ubuntu server to get set up completely.
 5. If Vagrant yells at you about not being able to finish configuration for the Microtik router (vm4), ignore it.
 6. Your environment is ready! You can shut it all off with `vagrant halt` and turn it on again with `vagrant up`. You can tinker with the settings of each VM as you deem necessary.
