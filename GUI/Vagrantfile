@@ -72,41 +72,11 @@ Vagrant.configure("2") do |config|
   
   # Define VM 1 - Ubuntu Webserver
   config.vm.define "ubuntu" do |ubuntu|
-    ubuntu.vm.box = "ubuntu/focal64"
-    ubuntu.vm.box_version = "20240821.0.1"
+    #ubuntu.vm.box = "ubuntu/focal64"
+    #ubuntu.vm.box_version = "20240821.0.1"
+    ubuntu.vm.box = "blue-team-labs/fossa-gui" # Desktop install of focal fossa
+    ubuntu.vm.box_version = "0.1.0"
     ubuntu.vm.hostname = "ubuntu-sandbox"
-
-    # Provisioning "sandbox" account + desktop environment
-    ubuntu.vm.provision "shell", inline: <<-SHELL
-      # Update and upgrade packages
-      sudo apt-get update && sudo apt-get upgrade -y
-
-      # Install Ubuntu Desktop Environment (standard GNOME desktop)
-      sudo apt-get install -y ubuntu-desktop
-
-      # Ensure system boots into graphical.target (desktop mode)
-      sudo systemctl set-default graphical.target
-
-      # Create the 'sandbox' user with the specified password
-      sudo useradd -m -s /bin/bash sandbox
-      echo 'sandbox:password' | sudo chpasswd
-
-      # Grant 'sandbox' user sudo privileges without password
-      # echo 'sandbox ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/sandbox
-      echo 'sandbox ALL=(ALL) ALL' | sudo tee /etc/sudoers.d/sandbox
-
-      # Ensure permissions for the sudoers file are correct
-      sudo chmod 0440 /etc/sudoers.d/sandbox
-
-      # Replace the current shell with sandbox user shell to delete vagrant user
-      #echo 'Deleting vagrant user...'
-      #exec su - sandbox -c "sudo deluser --remove-home vagrant"
-      
-      # Reboot into the desktop environment
-      sudo reboot
-
-    SHELL
-
     ubuntu.vm.network "private_network", ip: "192.168.56.11"
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.name = "ubuntu-#{uniqId}"
