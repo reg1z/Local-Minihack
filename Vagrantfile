@@ -84,8 +84,8 @@ Vagrant.configure("2") do |config|
 
   # Define VM 2 - Kali External
   config.vm.define "vm2" do |vm2|
-    vm2.vm.box = "blue-team-labs/kali-2021"
-    vm2.vm.box_version = "0.1.0"
+    vm2.vm.box = "blue-team-labs/kali-2021.1"
+    vm2.vm.box_version = "0.2.0"
     vm2.vm.hostname = "kali-external"
     vm2.vm.network "private_network", ip: "192.168.56.12"
     vm2.vm.provider "virtualbox" do |vb|
@@ -97,8 +97,8 @@ Vagrant.configure("2") do |config|
 
   # Define VM 3 - Kali Internal
   config.vm.define "vm3" do |vm3|
-    vm3.vm.box = "blue-team-labs/kali-2021"
-    vm3.vm.box_version = "0.1.0"
+    vm2.vm.box = "blue-team-labs/kali-2021.1"
+    vm3.vm.box_version = "0.2.0"
     vm3.vm.hostname = "kali-internal"
     vm3.vm.network "private_network", ip: "192.168.56.13"
     vm3.vm.provider "virtualbox" do |vb|
