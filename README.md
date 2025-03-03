@@ -85,7 +85,7 @@ This enables the following:
 
 > ### 🔥 To Start Fresh
 > If you screw up the environment and want to wipe it clean...
-> > ***==NOTE: You shouldn't have to re-download your boxes after the first-time setup.==***
+> > ***NOTE: You shouldn't have to re-download your boxes after the first-time setup.***
 > 
 > **From the directory you ran `vagrant up` in, run:**
 > - `vagrant destroy -f` ← (***forces*** shutdown + deletion automatica lly)
