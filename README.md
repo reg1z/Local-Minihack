@@ -12,8 +12,8 @@ This enables the following:
 
 
 ## Installation
-> ⭐ Dependencies ⭐
->  You will need **Virtualbox**, **Vagrant**, and the **Ruby programming language**. I have included links / instructions for setting these up on each platform below.
+> ### ⭐ Dependencies ⭐
+> You will need **Virtualbox**, **Vagrant**, and the **Ruby programming language**. I have included links / instructions for setting these up on each platform below.
 >  
 > You can follow OS-specific advice below, or check out [https://www.ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/) if those instructions aren't working for some reason.
 > 
