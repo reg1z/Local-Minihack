@@ -1,1 +1,3 @@
 .vagrant/
+./GUI/.vagrant/
+./Headless/.vagrant/
