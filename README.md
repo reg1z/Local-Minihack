@@ -12,7 +12,7 @@ This enables the following:
 
 
 ## Installation
-> ### ⭐ Dependencies ⭐
+> ### ⭐ Dependencies
 > You will need **Virtualbox**, **Vagrant**, and the **Ruby programming language**. I have included links / instructions for setting these up on each platform below.
 >  
 > You can follow OS-specific advice below, or check out [https://www.ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/) if those instructions aren't working for some reason.
@@ -39,12 +39,11 @@ This enables the following:
 	- Or check out [https://www.ruby-lang.org/en/downloads/](https://www.ruby-lang.org/en/downloads/)
 
 ## After installing required dependencies...
-
 **Obtain the script by doing 1 of the following:**
 - Download the zip of the repository and unpack it: [https://github.com/reg1z/Local-Minihack](https://github.com/reg1z/Local-Minihack) **OR**
 - Clone the repo with git: `git clone https://github.com/reg1z/Local-Minihack`
 
-> ⚠️ NOTICE
+> ### ⚠️ NOTICE
 > > ==**GUI** IS THE ONLY WORKING FLAVOR RIGHT NOW==
 >
 > **There are ~~2~~ 1 flavors of the script you can use: **
@@ -77,16 +76,15 @@ This enables the following:
 5. If Vagrant yells at you about not being able to finish configuration for the Microtik router (vm4), ignore it.
 6. Your environment is ready! You can shut it all off with `vagrant halt` and turn it on again with `vagrant up`. You can tinker with the settings of each VM as you deem necessary.
 
-## Login Info
-> 🔥 Login Info
+> ### 🔥 Login Info
 > - The Ubuntu and Kali boxes are configured with the same info as the Minihack
 > 	- **user:** sandbox
 > 	- **password**: password
 > - The Microtik router will have no existing configurations
 > 	- You will need to login with the username "admin" and provide your own password
 
-## To Start Fresh
-> 🔥 If you screw up the environment and want to wipe it clean...
+> ### 🔥 To Start Fresh
+> If you screw up the environment and want to wipe it clean...
 > > ***==NOTE: You shouldn't have to re-download your boxes after the first-time setup.==***
 > 
 > **From the directory you ran `vagrant up` in, run:**
