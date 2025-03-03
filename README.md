@@ -44,9 +44,9 @@ This enables the following:
 - Clone the repo with git: `git clone https://github.com/reg1z/Local-Minihack`
 
 > ### ⚠️ NOTICE
-> > ==**GUI** IS THE ONLY WORKING FLAVOR RIGHT NOW==
+> > **GUI IS THE ONLY WORKING FLAVOR RIGHT NOW**
 >
-> **There are ~~2~~ 1 flavors of the script you can use: **
+> **There are ~~2~~ 1 flavors of the script you can use:**
 > 1. **GUI** - Mimics the "Minihack" environment.
 > 	- Run `vagrant up` from the **"GUI"** directory if you want access to the desktop environments of each machine.
 > 2. ~~**Headless** - Mimics the game day environment (allegedly) - ***WARNING: WIP MAY NOT WORK***~~
