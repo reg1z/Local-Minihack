@@ -11,10 +11,10 @@ Vagrant.configure("2") do |config|
     #ubuntu.vm.box_version = "20240821.0.1"
     ubuntu.vm.box = "blue-team-labs/fossa-gui" # Desktop install of focal fossa
     ubuntu.vm.box_version = "0.2.0"
-    ubuntu.ssh.insert_key = false        # Do not replace the key
-    ubuntu.ssh.username = "vagrant"      # SSH username
-    ubuntu.ssh.password = "vagrant"      # SSH password
-    ubuntu.ssh.private_key_path = nil    # Disable key-based auth
+    #ubuntu.ssh.insert_key = false        # Do not replace the key
+    #ubuntu.ssh.username = "vagrant"      # SSH username
+    #ubuntu.ssh.password = "vagrant"      # SSH password
+    #ubuntu.ssh.private_key_path = nil    # Disable key-based auth
     ubuntu.vm.hostname = "ubuntu-sandbox"
     ubuntu.vm.network "private_network", ip: "192.168.56.11"
     ubuntu.vm.provider "virtualbox" do |vb|
