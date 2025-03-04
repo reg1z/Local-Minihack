@@ -4,8 +4,19 @@ uniqId = Time.now.to_i
 
 Vagrant.configure("2") do |config|
 
+  # Network Notes:
+  # Internal Network - Uses RFC1918 address 192.168.56.0/24
+  # - Hosts: Ubuntu Webserver, Kali Internal
+  #   - Default Gateway: Microtik Router
+  #     - Microtik Router should have 3 NICs enabled, one for the NAT connection required to setup vagrant, then one for accessing the Internal Network and one for the External Network
+  #     - The NICs do not need configuring in the host OSs. They should just be enabled/configured in the vbox settings as per these Network notes.
+  #
+  # External Network - Uses RFC1918 address 172.20.0.0/16
+  # - Hosts: Kali External
   
   # Define VM 1 - Ubuntu Webserver
+  # Should be located on the internal network
+  #
   config.vm.define "ubuntu" do |ubuntu|
     #ubuntu.vm.box = "ubuntu/focal64"
     #ubuntu.vm.box_version = "20240821.0.1"
@@ -16,16 +27,19 @@ Vagrant.configure("2") do |config|
     #ubuntu.ssh.password = "vagrant"      # SSH password
     #ubuntu.ssh.private_key_path = nil    # Disable key-based auth
     ubuntu.vm.hostname = "ubuntu-sandbox"
-    ubuntu.vm.network "private_network", ip: "192.168.56.11"
+    #ubuntu.vm.network "private_network", ip: "192.168.56.11"
+    ubuntu.vm.network "private_network", type: "hostonly", ip: "192.168.56.2",hostonly: "vboxnet0"
     ubuntu.vm.provider "virtualbox" do |vb|
       vb.name = "ubuntu-#{uniqId}"
       vb.gui = true
       vb.memory = 2048
       vb.cpus = 1
+      vb.customize ["modifyvm", "ubuntu-#{uniqId}", "--groups", "/Local-Minihack"]
     end
   end
 
   # Define VM 2 - Kali External
+  # Should be located on a separate network segment from the internal network. Also using an RFC1918 address
   config.vm.define "kaliExternal" do |kaliExternal|
     kaliExternal.vm.box = "blue-team-labs/kali-2021.1"
     kaliExternal.vm.box_version = "0.2.0"
@@ -36,6 +50,7 @@ Vagrant.configure("2") do |config|
       vb.gui = true
       vb.memory = 2048
       vb.cpus = 1
+      vb.customize ["modifyvm", "kali-external-#{uniqId}", "--groups", "/Local-Minihack"]
     end
   end
 
@@ -44,12 +59,14 @@ Vagrant.configure("2") do |config|
     kaliInternal.vm.box = "blue-team-labs/kali-2021.1"
     kaliInternal.vm.box_version = "0.2.0"
     kaliInternal.vm.hostname = "kali-internal"
-    kaliInternal.vm.network "private_network", ip: "192.168.56.13"
+    #kaliInternal.vm.network "private_network", ip: "192.168.56.13"
+    kaliInternal.vm.network "private_network", type: "hostonly", ip: "192.168.56.3",hostonly: "vboxnet0"
     kaliInternal.vm.provider "virtualbox" do |vb|
       vb.name = "kali-internal-#{uniqId}"
       vb.gui = true
       vb.memory = 2048
       vb.cpus = 1
+      vb.customize ["modifyvm", "kali-internal-#{uniqId}", "--groups", "/Local-Minihack"]
     end
   end
 
@@ -64,6 +81,7 @@ Vagrant.configure("2") do |config|
       vb.gui = true
       vb.memory = 256
       vb.cpus = 1
+      vb.customize ["modifyvm", "microtik-#{uniqId}", "--groups", "/Local-Minihack"]
     end
   end
 
